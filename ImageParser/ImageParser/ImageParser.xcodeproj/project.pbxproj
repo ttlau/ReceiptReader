@@ -19,7 +19,7 @@
 		D7C11100198DBD1B008B2602 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C110E8198DBD1B008B2602 /* UIKit.framework */; };
 		D7C11108198DBD1B008B2602 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7C11106198DBD1B008B2602 /* InfoPlist.strings */; };
 		D7C1110A198DBD1B008B2602 /* ImageParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D7C11109198DBD1B008B2602 /* ImageParserTests.m */; };
-		D7C11118198DBE3B008B2602 /* ImageProcessing.mm in Sources */ = {isa = PBXBuildFile; fileRef = D7C11117198DBE3B008B2602 /* ImageProcessing.mm */; };
+		D7C1111C198DBF80008B2602 /* ImageProcessing.mm in Sources */ = {isa = PBXBuildFile; fileRef = D7C1111B198DBF80008B2602 /* ImageProcessing.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,8 +49,8 @@
 		D7C11105198DBD1B008B2602 /* ImageParserTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ImageParserTests-Info.plist"; sourceTree = "<group>"; };
 		D7C11107198DBD1B008B2602 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D7C11109198DBD1B008B2602 /* ImageParserTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageParserTests.m; sourceTree = "<group>"; };
-		D7C11116198DBE3B008B2602 /* ImageProcessing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageProcessing.h; path = "../../../OCR-iOS-Example/OCR-Example/ImageProcessing.h"; sourceTree = "<group>"; };
-		D7C11117198DBE3B008B2602 /* ImageProcessing.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ImageProcessing.mm; path = "../../../OCR-iOS-Example/OCR-Example/ImageProcessing.mm"; sourceTree = "<group>"; };
+		D7C1111B198DBF80008B2602 /* ImageProcessing.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ImageProcessing.mm; sourceTree = "<group>"; };
+		D7C1111D198DBFBD008B2602 /* ImageProcessing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageProcessing.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,10 +110,10 @@
 		D7C110EA198DBD1B008B2602 /* ImageParser */ = {
 			isa = PBXGroup;
 			children = (
-				D7C11116198DBE3B008B2602 /* ImageProcessing.h */,
-				D7C11117198DBE3B008B2602 /* ImageProcessing.mm */,
 				D7C110F3198DBD1B008B2602 /* AppDelegate.h */,
 				D7C110F4198DBD1B008B2602 /* AppDelegate.m */,
+				D7C1111B198DBF80008B2602 /* ImageProcessing.mm */,
+				D7C1111D198DBFBD008B2602 /* ImageProcessing.h */,
 				D7C110F6198DBD1B008B2602 /* Images.xcassets */,
 				D7C110EB198DBD1B008B2602 /* Supporting Files */,
 			);
@@ -244,8 +244,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7C11118198DBE3B008B2602 /* ImageProcessing.mm in Sources */,
 				D7C110F5198DBD1B008B2602 /* AppDelegate.m in Sources */,
+				D7C1111C198DBF80008B2602 /* ImageProcessing.mm in Sources */,
 				D7C110F1198DBD1B008B2602 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
