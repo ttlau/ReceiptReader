@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # Script: parse.py
 
-import re,sys
+import re,sys,json
 
 
 def parse(filename):
@@ -9,26 +9,28 @@ def parse(filename):
 
 	Returns a dictionary of menu items to prices. Dictionary 
 	will include subtotal as well as total and tax
+
+
 	"""
+	itemDict = {}
 	# Extracts information from text file
 	with open(filename) as f:
 		for line in f:
 			if re.search('([0-9]*\.[0-9][0-9])', line):
 				price = float(re.search('[0-9]*\.[0-9][0-9]', line).group(0))
 				name = line[:line.index(str(price))].strip('$').strip(' ')
-				if re.search('[0-9]*', name):
-					number = int(re.search('[0-9]*', name).group(0))
-					if name.index(str(number)) > 0:
-						number = int(name[0:name.index(str(number))]+name[name.index(str(number))+len(str(number)):])
-					elif name.index(str(number)) == 0:
-						number = name[len(str(number)):name.index(str(number))]
-					else:
-						number = int(name[0:])
+				if re.search('[0-9]+', name):
+					quantity = int(re.search('[0-9]+', name).group(0))
+					if name.index(str(quantity)) > 0:
+						name = name[0:name.index(str(quantity))]+name[name.index(str(quantity))+len(str(quantity)):]
+					elif name.index(str(quantity)) == 0:
+						name = name[len(str(quantity)):]
 
 				else:
-					number = 1
-				print number + " x " + "Name: " + name
-				print "Price: " + str(price)
+					quantity = 1
+			name = name.strip(' ')
+			itemDict[name] = {"Quantity":quantity, "Price":price}
+	return itemDict
 
 
 
@@ -40,5 +42,5 @@ if __name__ == "__main__":
 	print 'Number of arguments:', len(sys.argv), 'argument(s).'
 	assert len(sys.argv)==2, "Incorrect number arguments. Format should be: ./parse.py results.txt"
 	assert re.search('.*\.txt', sys.argv[1])
-	parse(sys.argv[1])
+	print json.dumps(parse(sys.argv[1]), sort_keys=True, indent=4, separators=(',',':'))
 	
