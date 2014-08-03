@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>B2272F13-9D10-494E-BFF2-585DB6DEE457</string>
+	<key>IDESourceControlProjectName</key>
+	<string>OCR-Example</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>B69417D3-DB8D-4B30-B530-17743120C886</key>
+		<string>https://github.com/mstrchrstphr/OCR-iOS-Example.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>OCR-Example.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>B69417D3-DB8D-4B30-B530-17743120C886</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/mstrchrstphr/OCR-iOS-Example.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>B69417D3-DB8D-4B30-B530-17743120C886</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B69417D3-DB8D-4B30-B530-17743120C886</string>
+			<key>IDESourceControlWCCName</key>
+			<string>OCR-iOS-Example</string>
+		</dict>
+	</array>
+</dict>
+</plist>
