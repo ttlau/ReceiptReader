@@ -17,7 +17,6 @@
 		7462257F173DCADA003EE853 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7462257E173DCADA003EE853 /* Default@2x.png */; };
 		74622581173DCADA003EE853 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74622580173DCADA003EE853 /* Default-568h@2x.png */; };
 		74622584173DCADA003EE853 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74622582173DCADA003EE853 /* MainStoryboard.storyboard */; };
-		74622587173DCADA003EE853 /* PhotoChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74622586173DCADA003EE853 /* PhotoChooserViewController.m */; };
 		7462258F173DCD74003EE853 /* ResultsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7462258E173DCD74003EE853 /* ResultsViewController.mm */; };
 		746226E3173DDA6A003EE853 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 746226E2173DDA6A003EE853 /* tessdata */; };
 		746226E6173DDDC9003EE853 /* ImageProcessing.mm in Sources */ = {isa = PBXBuildFile; fileRef = 746226E5173DDDC9003EE853 /* ImageProcessing.mm */; };
@@ -25,6 +24,9 @@
 		74622785173DEE86003EE853 /* libtesseract_all.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7462277F173DEE86003EE853 /* libtesseract_all.a */; };
 		74622786173DEE86003EE853 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 74622780173DEE86003EE853 /* README.md */; };
 		74622787173DEE86003EE853 /* Tesseract.mm in Sources */ = {isa = PBXBuildFile; fileRef = 74622783173DEE86003EE853 /* Tesseract.mm */; };
+		D7C111F7198E1048008B2602 /* BJImageCropper in Resources */ = {isa = PBXBuildFile; fileRef = D7C111F6198E1048008B2602 /* BJImageCropper */; };
+		D7C111F8198E81AD008B2602 /* PhotoChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74622586173DCADA003EE853 /* PhotoChooserViewController.m */; };
+		D7C111FB198E82C4008B2602 /* BJImageCropper.m in Sources */ = {isa = PBXBuildFile; fileRef = D7C111FA198E82C4008B2602 /* BJImageCropper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -197,6 +199,9 @@
 		74622780173DEE86003EE853 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		74622782173DEE86003EE853 /* Tesseract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tesseract.h; sourceTree = "<group>"; };
 		74622783173DEE86003EE853 /* Tesseract.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Tesseract.mm; sourceTree = "<group>"; };
+		D7C111F6198E1048008B2602 /* BJImageCropper */ = {isa = PBXFileReference; lastKnownFileType = folder; path = BJImageCropper; sourceTree = "<group>"; };
+		D7C111F9198E82C4008B2602 /* BJImageCropper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BJImageCropper.h; path = BJImageCropper/BJImageCropper/BJImageCropper.h; sourceTree = "<group>"; };
+		D7C111FA198E82C4008B2602 /* BJImageCropper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BJImageCropper.m; path = BJImageCropper/BJImageCropper/BJImageCropper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,6 +260,9 @@
 				7462258E173DCD74003EE853 /* ResultsViewController.mm */,
 				746226E4173DDDC9003EE853 /* ImageProcessing.h */,
 				746226E5173DDDC9003EE853 /* ImageProcessing.mm */,
+				D7C111F9198E82C4008B2602 /* BJImageCropper.h */,
+				D7C111FA198E82C4008B2602 /* BJImageCropper.m */,
+				D7C111F6198E1048008B2602 /* BJImageCropper */,
 				74622571173DCADA003EE853 /* Supporting Files */,
 			);
 			path = "OCR-Example";
@@ -529,6 +537,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7C111F7198E1048008B2602 /* BJImageCropper in Resources */,
 				74622575173DCADA003EE853 /* InfoPlist.strings in Resources */,
 				7462257D173DCADA003EE853 /* Default.png in Resources */,
 				7462257F173DCADA003EE853 /* Default@2x.png in Resources */,
@@ -548,8 +557,9 @@
 			files = (
 				74622577173DCADA003EE853 /* main.m in Sources */,
 				7462257B173DCADA003EE853 /* AppDelegate.m in Sources */,
-				74622587173DCADA003EE853 /* PhotoChooserViewController.m in Sources */,
 				7462258F173DCD74003EE853 /* ResultsViewController.mm in Sources */,
+				D7C111F8198E81AD008B2602 /* PhotoChooserViewController.m in Sources */,
+				D7C111FB198E82C4008B2602 /* BJImageCropper.m in Sources */,
 				746226E6173DDDC9003EE853 /* ImageProcessing.mm in Sources */,
 				74622787173DEE86003EE853 /* Tesseract.mm in Sources */,
 			);

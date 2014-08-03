@@ -8,9 +8,30 @@
 
 #import "PhotoChooserViewController.h"
 #import "ResultsViewController.h"
+#import "BJImageCropper/BJImageCropper/BJImageCropper.h"
+
+#define SHOW_PREVIEW NO
+#ifndef CGWidth
+#define CGWidth(rect)                   rect.size.width
+#endif
+
+#ifndef CGHeight
+#define CGHeight(rect)                  rect.size.height
+#endif
+
+#ifndef CGOriginX
+#define CGOriginX(rect)                 rect.origin.x
+#endif
+
+#ifndef CGOriginY
+#define CGOriginY(rect)                 rect.origin.y
+#endif
 
 @interface PhotoChooserViewController ()
 @property (nonatomic, strong) UIImage *selectedImage;
+@property (nonatomic, strong) UIImageView *preview;
+@property (nonatomic, strong) IBOutlet UILabel *boundsText;
+@property (nonatomic, strong) BJImageCropper *cropView;
 @end
 
 @implementation PhotoChooserViewController
@@ -33,11 +54,16 @@
     
     // Show process button
     if (self.selectedImage) {
-        UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithTitle:@"Process"
+        UIBarButtonItem *processButton = [[UIBarButtonItem alloc] initWithTitle:@"Process"
                                                                       style:UIBarButtonItemStylePlain
                                                                      target:self
                                                                      action:@selector(processWasPressed:)];
-        [self.navigationItem setRightBarButtonItem:barButton animated:YES];
+        UIBarButtonItem *cropButton = [[UIBarButtonItem alloc] initWithTitle:@"Crop"
+                                                                      style:UIBarButtonItemStylePlain
+                                                                     target:self
+                                                                     action:@selector(cropPhotoWasTapped:)];
+        [self.navigationItem setRightBarButtonItem:processButton animated:YES];
+        [self.navigationItem setLeftBarButtonItem:cropButton animated:YES];
         [self.selectedImageView setImage:self.selectedImage];
     }
     
@@ -47,6 +73,50 @@
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(IBAction)cropPhotoWasTapped:(id)sender{
+    _cropView = [[BJImageCropper alloc] initWithImage:self.selectedImage andMaxSize:CGSizeMake (1024, 600)];
+    
+    
+    [self.view addSubview:_cropView];
+    _cropView.center = self.view.center;
+    _cropView.imageView.layer.shadowColor = [[UIColor blackColor] CGColor];
+    _cropView.imageView.layer.shadowRadius = 3.0f;
+    _cropView.imageView.layer.shadowOpacity = 0.8f;
+    _cropView.imageView.layer.shadowOffset = CGSizeMake(1, 1);
+    
+    [_cropView addObserver:self forKeyPath:@"crop" options:NSKeyValueObservingOptionNew context:nil];
+    
+    if (SHOW_PREVIEW) {
+        self.preview = [[UIImageView alloc] initWithFrame:CGRectMake(10,10,_cropView.crop.size.width * 0.1, _cropView.crop.size.height * 0.1)];
+        self.preview.image = [_cropView getCroppedImage];
+        self.preview.clipsToBounds = YES;
+        self.preview.layer.borderColor = [[UIColor whiteColor] CGColor];
+        self.preview.layer.borderWidth = 2.0;
+        [self.view addSubview:self.preview];
+    }
+
+                                            
+}
+
+- (void)updateDisplay {
+    self.boundsText.text = [NSString stringWithFormat:@"(%f, %f) (%f, %f)", CGOriginX(_cropView.crop), CGOriginY(_cropView.crop), CGWidth(_cropView.crop), CGHeight(_cropView.crop)];
+    
+    if (SHOW_PREVIEW) {
+        self.preview.image = [_cropView getCroppedImage];
+        self.preview.frame = CGRectMake(10,10,_cropView.crop.size.width * 0.1, _cropView.crop.size.height * 0.1);
+    }
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if ([object isEqual:_cropView] && [keyPath isEqualToString:@"crop"]) {
+        [self updateDisplay];
+    }
+}
+
+-(UIImage *)getPhoto{
+    return [_cropView getCroppedImage];
 }
 
 - (void)processWasPressed:(id)sender
@@ -62,8 +132,8 @@
     activityView.center = resultsVC.loadingView.center;
     [activityView startAnimating];
     
-    resultsVC.selectedImage = self.selectedImage;
-    [resultsVC.selectedImageView setImage:self.selectedImage];
+    resultsVC.selectedImage = [_cropView getCroppedImage];
+    [resultsVC.selectedImageView setImage:[_cropView getCroppedImage]];
     
     // Push
     [self.navigationController pushViewController:resultsVC animated:YES];
