@@ -132,7 +132,8 @@
     activityView.center = resultsVC.loadingView.center;
     [activityView startAnimating];
     
-    resultsVC.selectedImage = [_cropView getCroppedImage];
+    self.selectedImage = [_cropView getCroppedImage];
+    resultsVC.selectedImage = self.selectedImage;
     [resultsVC.selectedImageView setImage:[_cropView getCroppedImage]];
     
     // Push
