@@ -1,0 +1,8 @@
+1  mango        $12.32
+45 apple        $42.23
+54 watermelon   $23.43
+22 banana       $43.22
+28 coconut       34.78
+   Subtotal      34.43
+   Tax           23.22
+   Total        $100.43
